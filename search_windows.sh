@@ -5,7 +5,7 @@
 windows=$(wmctrl -l)
 
 # Use rofi to search through the windows
-selected=$(echo "$windows" | rofi -dmenu -i -p "Search Windows")
+selected=$(echo "$windows"  | grep -v "xfce" | cut -d' ' -f-1,5- | rofi -dmenu -i -p "Search Windows")
 
 # Check if a window was selected
 if [ -n "$selected" ]; then
